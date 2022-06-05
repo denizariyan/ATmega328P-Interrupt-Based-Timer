@@ -47,12 +47,12 @@ An example code snippet for an interrupt based timer using the 16-bit Timer 1 of
 ```c
 ISR (TIMER1_OVF_vect) {
     PORTB ^= (1 << PORTB5); // Toggle the 5th data register of PORTB
-    TCNT1 = 49911; // 50 ms for 16MHz clock
+    TCNT1 = 64755; // 50 ms for 16MHz clock
 }
 
 int main() {
     DDRB = (1 << DDB5); // Set 5th data direction register of PORTB. A set value means output
-    TCNT1 = 49911; // 50 ms for 16MHz clock
+    TCNT1 = 64755; // 50 ms for 16MHz clock
     TCCR1A = 0x00; // Set normal counter mode
     TCCR1B = (1<<CS10) | (1<<CS12); // Set 1024 pre-scaler
     TIMSK1 = (1 << TOIE1); // Set overflow interrupt enable bit
@@ -72,4 +72,26 @@ But how do we calculate how long we need to wait? Unless we need to change the w
 pre-compute the value for `TCNT1` which is in basic terms what determines the wait time.
 
 ## Calculate the wait time
-WIP
+So how do we calculate the value we put on `TCNT1` according to the wait time we want.
+
+### 1. Divide Frequency to pre-scaler
+Since we are using the Timer 1 of the ATmega328P and this timer is running on 16MHz we divide this value by our selected
+pre-scaler of 1024.
+
+`Freq/Pre-scaler` => `16MHz/1024 = 15.625KHz`
+
+### 2. Calculate tge Tick time
+Then we get the 1 over of this value to find our tick time. Which is 64 micro seconds.
+
+`1/15.625KHz = 64μs`
+
+### 3. Get delay time
+Our clock is 16-bit therefore we need to subtract `t/64μs` from `2^16 = 65536` which will in turn give us the value 
+we need to put in `TCNT1`. Where `t` is the time we want to wait in milliseconds.
+
+`TCNT1 = 2^16 - (t/64μs)`
+
+For example, if we want to have wait time of 100ms we would calculate it as;
+
+`TCNT1 = 2^16 - (100/0.064)` => `TCNT1 = 65536 - 1562` => `TCNT1 = 63974`
+
