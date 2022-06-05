@@ -102,3 +102,7 @@ For example, if we want to have wait time of 100ms we would calculate it as;
 
 `TCNT1 = 2^16 - (100/0.064)` => `TCNT1 = 65536 - 1562` => `TCNT1 = 63974`
 
+## Example output
+Below you can see an example output displayed on a simulated oscilloscope when the timer is set to have a delay of 1 seconds.
+![chart](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/5232e475d39522156fe4f9f8fee74ccbf89df640/images/output.png)
+
