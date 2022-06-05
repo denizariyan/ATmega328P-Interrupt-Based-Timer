@@ -4,9 +4,14 @@ This project is an example of an interrupt based timer for the commonly used ATm
 is powered by CMake and platformIO.
 
 ## Why use interrupt based timers?
-There is two main approaches when it comes to delaying something in embedded systems. This project is 
-an example of interrupt based waiting, but I will explain both options with examples. Below you can see a chart which
-shows the difference of busy waiting and interrupt based waiting.
+There is two main approaches when it comes to delaying something in embedded systems. In most basic terms, busy waiting 
+is the act of giving a long and unnecessary work to the CPU, so you can block it from processing the next operation. 
+This is wasteful both in terms of CPU resources and power. In contrast, interrupt based waiting is the act of starting 
+a timer which will wait on its own without blocking the CPU until the time comes. When the timer runs out; it will 
+go ahead and interrupt the CPU and ask it to do whatever task that is assigned to that timer.
+
+This project is an example of interrupt based waiting, but I will explain both options with examples.
+Below you can see a chart which shows the difference of busy waiting and interrupt based waiting.
 
 ![chart](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/31c53ba0dbaa9fcd8ec300ddfe3c02792a8571fd/images/interrupt.png)
 
