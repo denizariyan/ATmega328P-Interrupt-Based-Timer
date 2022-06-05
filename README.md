@@ -93,7 +93,7 @@ pre-scaler of 1024.
 
 `Freq/Pre-scaler` => `16MHz/1024 = 15.625KHz`
 
-### 2. Calculate tge Tick time
+### 2. Calculate the Tick time
 Then we get the 1 over of this value to find our tick time. Which is 64 micro seconds.
 
 `1/15.625KHz = 64μs`
@@ -110,7 +110,7 @@ For example, if we want to have wait time of 100ms we would calculate it as;
 
 ## Example output
 Below you can see an example output displayed on a simulated oscilloscope when the timer is set to have 
-a delay of 1 seconds.
+a delay of 1 second.
 
 ![chart](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/5232e475d39522156fe4f9f8fee74ccbf89df640/images/output.png)
 
