@@ -6,6 +6,12 @@ This project is an example of an interrupt based timer for the commonly used ATm
 There is two main approaches when it comes to delaying something in embedded systems. This project is 
 an example of interrupt based waiting, but I will explain both options with examples.
 
+![chart](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/31c53ba0dbaa9fcd8ec300ddfe3c02792a8571fd/images/interrupt.png)
+
+
+Chart credits:
+Valvano, J., & Yerraballi, R. (n.d.). Chapter 12: Interrupts. The University of Texas at Austin. Retrieved June 5, 2022, from https://users.ece.utexas.edu/%7Evalvano/Volume1/E-Book/C12_Interrupts.htm
+
 ### 1. Busy Waiting - *the blocking selfish way*
 The selfish and the easy way of delaying something is just blocking the CPU with some unnecessary work,
 usually by creating loops that accomplish nothing but look like they do to the compiler. If compiler
