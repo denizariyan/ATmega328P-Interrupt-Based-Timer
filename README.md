@@ -1,6 +1,7 @@
 # Interrupt Based Timer for ATmega328P
 
-This project is an example of an interrupt based timer for the commonly used ATmega328P microcontroller.
+This project is an example of an interrupt based timer for the commonly used ATmega328P microcontroller. This project 
+is powered by CMake and platformIO.
 
 ## Why use interrupt based timers?
 There is two main approaches when it comes to delaying something in embedded systems. This project is 
@@ -103,6 +104,16 @@ For example, if we want to have wait time of 100ms we would calculate it as;
 `TCNT1 = 2^16 - (100/0.064)` => `TCNT1 = 65536 - 1562` => `TCNT1 = 63974`
 
 ## Example output
-Below you can see an example output displayed on a simulated oscilloscope when the timer is set to have a delay of 1 seconds.
+Below you can see an example output displayed on a simulated oscilloscope when the timer is set to have 
+a delay of 1 seconds.
+
 ![chart](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/5232e475d39522156fe4f9f8fee74ccbf89df640/images/output.png)
 
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+
+## License
+
+[MIT](https://github.com/denizariyan/ATmega328P-Interrupt-Based-Timer/blob/eecb6e9e82a4568896c400b8dc0f657bdedef324/LICENSE)
